@@ -168,7 +168,18 @@ private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) 
 		String^ email = this->tbEmail->Text;
 		String^ password = this->tbPassword->Text;
 
-		if (email->Length == 0 || password->Length == 0)
+		if (email->Length == 0 || password->Length == 0) {
+			MessageBox::Show("Please enter email and password to login", 
+				"Email or password empty", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				return;
+		}
+
+		try {
+
+		}
+		catch (Exception^ e) {
+			MessageBox::Show("Failed to connect to database")
+		}
 }
 };
 }
